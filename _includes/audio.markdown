@@ -1,0 +1,2 @@
+# Audio #
+P.O.V. features a sound studio run by experienced musician and composer Carlos Lazarte. We handle everything from voice over recording, to sound mixing and original music composition for all media.

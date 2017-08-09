@@ -1,0 +1,472 @@
+.shadowed {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+//----------------------- Site header
+
+.site-header {
+  background: $grey-color-dark-t;
+  min-height: $header-height;
+  // Positioning context for the mobile navigation icon
+  position: fixed;
+  width: $header-width;
+  z-index: 200;
+}
+
+.site-title {
+  font-size: 26px;
+  font-weight: 300;
+  height: 56px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
+
+  &:hover {
+    background: $blue;
+    svg path {
+      fill: #fff;
+    }
+  }
+  svg {
+    height: 100%;
+    width: auto;
+    circle {
+      display: none;
+      fill: $grey-color-dark;
+    }
+    path {
+      fill: #fff;
+    }
+  }
+  &,
+  &:visited {
+    color: $grey-color-dark;
+  }
+}
+
+.visually-hidden { 
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; 
+    margin: -1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: absolute; 
+    width: 1px; 
+}
+.site-nav {
+  float: right;
+  height: $header-height;
+  .menu-screen {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $grey-color-dark;
+    z-index: -1;
+  }
+  .trigger {
+    height: 100%;
+    @include media-query($on-laptop) {
+      height: auto;
+      position: absolute;
+      left: 0;
+      top: $header-height;
+      width: 100%;
+      background: $grey-color-dark;
+      z-index: -2;
+      transform: translateY(-100%);
+      transition: transform $menu-transition;
+      
+      &.show {
+        transform: translateY(0);
+      }
+    }
+  }
+  .menu-icon {
+    box-sizing: border-box;
+    padding: 20px;
+    height: 100%;
+    display: none;
+    > svg {
+      height: 100%;
+      path {
+        fill: #fff;
+      }
+    }
+    
+    @include media-query($on-laptop) {
+      display: block;
+    }
+  }
+
+  .page-link {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    padding: $spacing-unit / 2;
+    color: #fff;
+    line-height: $base-line-height;
+    // Gaps between nav items, but not on the last one
+    &:hover {
+      background: $blue;
+    }
+    &:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 5px;
+      width: 100%;
+      background: $red; 
+      opacity: 0;
+      transition: opacity .2s ease-out;
+    }
+    &.active {
+      &:after {
+        opacity: 1;
+      }
+    }
+    @include media-query($on-laptop) {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+}
+.site-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 180;
+  background: $grey-color-dark-t;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $menu-transition, visibility $menu-transition;
+  display: none;
+  @include media-query($on-laptop) {
+      display: block;
+  }
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  a {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+//----------------------- Columns
+.col-wrapper {
+  overflow: hidden;
+  width: 100%;
+  clear: both;
+  @extend %clearfix;
+  &:last-child {
+    .col {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.col {
+    float: left;
+    padding: 0 ($spacing-unit / 2) ($spacing-unit / 2) ($spacing-unit / 2);
+    &:first-child {
+        padding-left: 0;
+    }
+    &:last-child {
+        padding-right: 0;
+    }
+    & > :last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+}
+
+.col-3-single {
+    width: 33.33%;
+}
+
+.col-3-double {
+    width: 66.66%;
+}
+
+.col-3-single,
+.col-3-double {
+    @extend .col;
+    @include media-query($on-laptop) {
+        float: none;
+        width: 100%;
+        padding: 0 0 ($spacing-unit / 2) 0;
+        &:last-child {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+//----------------------- Site footer
+
+.site-footer {
+  position: relative;
+  width: 100%;
+  order: 500;
+  z-index: 10;
+  border-width: 0;
+  background: url(../images/footer-bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  padding: $spacing-unit 0;
+  span {
+    color: $blue;
+  }
+  ul {
+    @include list-grid;
+  }
+  & > .wrapper {
+    background: $grey-color-x-dark-t;
+    padding: $spacing-unit;
+    @include media-query($on-laptop) {
+      padding: $spacing-unit ($spacing-unit / 2);
+    }
+  }
+}
+
+.footer-heading {
+    display: none;
+}
+
+.footer-col-wrapper {
+    @extend .col-wrapper;
+}
+
+.footer-col-1 {
+    @extend .col-3-single;
+}
+
+.footer-col-2 {
+  @extend .col-3-double;
+}
+
+//----------------------- Reset Jquery Mobile
+.ui-loader-default {
+  background: transparent;
+  border-width: 0;
+  opacity: .3;
+}
+
+.ui-popup-container {
+    position: fixed;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%,-50%) scale(1) !important;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.ui-mobile [data-role=page], .ui-page {
+  //position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.ui-collapsible-inset {
+    margin: 0;
+}
+
+.ui-collapsible-content {
+    padding: ($spacing-unit / 2);
+}
+
+//----------------------------- Page content
+
+.wrapper-bg {
+    position: relative;
+    z-index: 5;
+    background: $grey-color-x-dark;
+}
+
+.wrapper-bg-t {
+    position: relative;
+    z-index: 5;
+    background: $grey-color-x-dark-t;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.ui-mobile .ui-page-active.content-container {
+    margin-top: $header-height;
+    & > div > .wrapper {
+        margin-top: $spacing-unit;
+    }
+}
+
+.wrapper.page {
+    padding-top: $spacing-unit;
+    font-size: 1.2em;
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            padding: ($spacing-unit / 4) 0;
+            border-bottom: 1px solid $grey-color-dark;
+            &:last-child {
+                border: 0;
+            }
+        }
+    }
+}
+
+.flex-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-heading {
+    @include heading;
+    margin-bottom: $spacing-unit;
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.post-meta {
+    font-size: $small-font-size;
+    color: $grey-color;
+}
+
+.post-link {
+    display: block;
+    font-size: 24px;
+}
+
+//----------------------- Popup 
+.ui-popup-screen {
+    position: fixed;
+}
+
+.pop-up {
+    width: 100%;
+    max-width: 640px;
+    .flex-wrapper {
+        background: $blue;
+        padding: ($spacing-unit / 2);
+    }
+    h2, .year {
+        margin: 0;
+        font-size: 1.75em;
+        font-weight: $light-font-weight;
+    }
+    .year {
+        font-weight: $bold-font-weight;
+        color: $grey-color-3;
+    }
+    .client {
+        width: 100%;
+        background-color: $grey-color-dark;
+        padding: ($spacing-unit / 4) ($spacing-unit / 2);
+        font-weight: $bold-font-weight;
+        span {
+            font-weight: $light-font-weight;
+            float: right;
+        }
+    }
+    .wrapper {
+        padding: ($spacing-unit / 2);
+        & > div > :last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        & > div > :first-child {
+            padding-top: 0;
+        }
+        p {
+            font-weight: $light-font-weight;
+            font-size: 1.5em;
+            line-height: 1.2em;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                padding: ($spacing-unit / 4) 0;
+                border-bottom: 1px solid $grey-color-dark;
+                &:last-child {
+                    border: 0;
+                }
+            }
+        }
+    }
+}
+
+//----------------------- Posts
+
+.post-header {
+    margin-bottom: $spacing-unit;
+}
+
+.post-title {
+    @include heading;
+    @include media-query($on-laptop) {
+        font-size: 36px;
+    }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+
+  h2 {
+      font-size: 32px;
+
+      @include media-query($on-laptop) {
+          font-size: 28px;
+      }
+  }
+
+  h3 {
+      font-size: 26px;
+
+      @include media-query($on-laptop) {
+          font-size: 22px;
+      }
+  }
+
+  h4 {
+    font-size: 20px;
+
+    @include media-query($on-laptop) {
+      font-size: 18px;
+    }
+  }
+}
+
+@import "home", "about";

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+    {% include head.html %}
+
+    <body>
+		
+        {% include header.html %}
+		<div class="image-pl"></div> <!-- Preload Loading Background -->
+        <div class="page-content" >
+            <div class="content-container" data-role="page">
+              
+              {{ content }}
+              {% include footer.html %}
+              
+            </div>
+            
+        </div>
+        <div class="site-screen">
+          <a href="#" onclick="modules.toggleMenu();"></a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+    {% include head.html %}
+
+    <body>
+        <div class="image-pl"></div>
+        
+        {% include header.html %}
+
+        <div class="page-content">  
+            <div class="content-container" data-role="page">
+                
+                {{ content }}
+                {% include footer.html %}
+
+            </div>
+            
+        </div>
+    </body>
+</html>

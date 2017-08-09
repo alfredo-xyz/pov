@@ -1,0 +1,50 @@
+//------------ Icons ----------
+@mixin arrow($size, $pad) {
+    $o: ($size - $pad * 2) / 2;
+    
+    .arrow-container {
+        box-sizing: border-box;
+        display: block;
+        width: $size;
+        height: $size;
+        padding: $pad;
+
+        @content;
+        &:active, &:focus {
+            border: 0;
+        }
+    }
+    .arrow {
+        width: 100%;
+        height: 100%;
+        display: block;
+        hr {
+            border: 0; 
+            height: 2px;
+            background: $text-color;
+            &:first-child {
+                transform-origin: left;
+            }
+            &:last-child {
+                transform-origin: right;
+            }
+        }
+        hr {
+            &:first-child {
+                transform: scale(0.65) translate(0, $o) rotate(40deg);
+            }
+            &:last-child {
+                transform: scale(0.65) translate(0, $o - 1px) rotate(-40deg);
+            }
+        }
+        &.up {
+            transform: rotate(180deg);
+        }
+        &.left {
+            transform: rotate(-90deg);
+        }
+        &.right {
+            transform: rotate(90deg);
+        }
+    }
+}

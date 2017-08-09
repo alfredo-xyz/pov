@@ -1,0 +1,27 @@
+about-title: "About Us"
+bios-title: "The Crew"
+image-1: "pov7.jpg"
+image-2: "pov9.jpg"
+image-3: "pov2.jpg"
+image-4: "pov5.jpg"
+services:
+  title: What We Can Do For You
+  description: We produce, develop media content for film and advertising and any medium.
+  data:
+    - title: Advertising
+      icon: "service-1.png"
+    - title: Film & TV
+      icon: "film.png"
+    - title: 3D, Motion Graphics & Visual Effects
+      icon: "vfx.png"
+    - title: Corporate
+      icon: "corporate.png"
+    - title: Audio Recording Studio
+      icon: "audio.png"
+tooltip: boutique.markdown
+audio-images:
+  - "audio-1.jpg"
+  - "audio-2.jpg"
+  - "audio-3.jpg"
+  - "audio-4.jpg"
+  - "audio-5.jpg"
