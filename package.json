@@ -15,9 +15,8 @@
   "scripts": {
     "webpack-dev": "cross-env NODE_ENV=dev webpack --config webpack.config.js",
     "webpack-prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "js-build": "uglifyjs node_modules/scrollreveal/dist/scrollreveal.js src/script.js -b -o scripts/script.js",
     "postcss": "postcss --use autoprefixer --use cssnano -o _site/css/main-min.css _site/css/main.css",
-    "build": "npm run js-build && npm run postcss"
+    "build": "jekyll build && npm run webpack-prod && npm run postcss"
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8",

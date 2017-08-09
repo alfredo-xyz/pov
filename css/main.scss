@@ -118,12 +118,12 @@ $menu-transition: .5s ease-out;
   }
 }
 
-@mixin color-mix($c2, $c1, $t, $a: "color", $s: "", $o: 0, $repeat: 1) {
+@mixin color-mix($c2, $c1, $t, $a: "color", $s: "", $o: 0, $repeat: 1, $pseudo: "") {
   $p: 100 / ($t - 1);
   $r: $repeat + 'n + ';
 
   @for $i from 1 through $t - $o {
-    &:nth-child(#{$r + $i}) #{$s}{
+    &:nth-child(#{$r + $i})#{$pseudo} #{$s}{
       $f: $p * ($i - 1 + $o);
       $t: percentage($f/100);
       #{$a}: mix($c1, $c2, $t);

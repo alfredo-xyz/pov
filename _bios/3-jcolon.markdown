@@ -2,7 +2,7 @@
 layout: page
 name: Javier Colón
 title: "Director"
-image: "j-ortiz.jpg"
+image: "j-colon"
 ---
 Has been working as writer/director for the last 10 years, after finishing his master's degree in film directing from the prestigious American Film Institute in California. 
 

@@ -2,7 +2,7 @@
 layout: page
 name: Antonio Bruno
 title: "Video Post-Production Specialist"
-image: "a-bruno.jpg"
+image: "a-bruno"
 ---
 From the experiments with stop motion and cartoon animation in his student years, to visual effects, editing and 3D animation of today; his focus has always been to link artistic skills with technological skills.
 

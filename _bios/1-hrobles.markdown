@@ -2,7 +2,7 @@
 layout: page
 name: Heixan Robles
 title: "Director / Director of Photography"
-image: "h-robles.jpg"
+image: "h-robles"
 ---
 Emmy award winner cinematographer. Began his career as a theater technician while making short films, some of which have traveled several festivals around the world, like HBO NY Latino Film Festival, NY International Film Festival, Cinefiesta PR Short Film Festival, Guadalajara Film Festival.
 

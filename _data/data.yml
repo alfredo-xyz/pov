@@ -8,16 +8,20 @@ services:
   title: What We Can Do For You
   description: We produce, develop media content for film and advertising and any medium.
   data:
-    - title: Advertising
+    - title: "Advertising"
       icon: "service-1.png"
-    - title: Film & TV
+    - title: "Film & TV"
       icon: "film.png"
-    - title: 3D, Motion Graphics & Visual Effects
+    - title: "3D, Motion Graphics & Visual Effects"
       icon: "vfx.png"
-    - title: Corporate
+    - title: "Corporate"
       icon: "corporate.png"
-    - title: Audio Recording Studio
+    - title: "Audio Recording Studio"
       icon: "audio.png"
+    - title: "360° Video"
+      icon: "360-video.png"
+    - title: "Web Content"
+      icon: "web.png"
 tooltip: boutique.markdown
 audio-images:
   - "audio-1.jpg"

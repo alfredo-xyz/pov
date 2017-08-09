@@ -13,7 +13,7 @@ layout: default
   </div>
 </section>
 {% comment %} Videos {% endcomment %}
-<section id="ss-container">
+<section id="ss-container" class="wrapper">
   <div id="video-target" class="hidden"></div>
   {% assign l = 1 %}
   {% for categories in site.collections %}
@@ -78,13 +78,12 @@ layout: default
             </div>
           {% endfor %}
         </div>
-        <a class="next-section" href="#panel-{{ l | plus: 1 }}" data-rel="inner">
+        <a class="next-section" href="#service-wrapper" data-rel="inner">
             <div class="arrow-container">
               {% include arrow_down.html %}
             </div>
         </a>
       </div>
-      {% assign l = l | plus: 1 %}
     {% endif %}
   {% endfor %}
   <div id="pictureBG"></div>
@@ -97,7 +96,7 @@ layout: default
       <ul class="services">
       {% for service in mydata.services.data %}
         <li>
-          <div style="background-image: url(../images/{{ service.icon }});"></div>
+          <div style="background-image: url(../images/{{ service.icon }});" aria-hidden="true"></div>
           <h3>{{ service.title }}</h3>
         </li>
       {% endfor %}
@@ -105,7 +104,7 @@ layout: default
       <h4>{{ mydata.services.description }}</h4>
     </div>
   </div>
-  <a class="arrow-container" href="#bios-wrapper" alt="The A Team" data-rel="inner">
+  <a class="arrow-container" href="#audio-wrapper" alt="Audio" data-rel="inner">
     {% include arrow_down.html %}
   </a>
 </section>
@@ -147,11 +146,15 @@ layout: default
     <div class="wrapper about">
     {% for bios in categories.docs %}
         <div class="bio-wrapper">
-            <div class="bio-image shadowed" style="background-image: url(../images/{{ bios.image }})"></div>
+            <a href="#{{ bios.image | slugify }}" data-rel="popup" data-position-to="window" 
+              class="bio-image shadowed" style="background-image: url(../images/{{ bios.image }}.jpg)"></a>
             <div class="bio-card wrapper-bg-t shadowed">
                 <h4>{{ bios.name }}</h4>
                 <h5>{{ bios.title }}</h5>
                 {{ bios.content }}
+            </div>
+            <div data-role="popup" id="{{ bios.image | slugify }}" class="photopopup" data-overlay-theme="b" data-corners="false" data-tolerance="30,15">
+              <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="../images/{{ bios.image }}-l.jpg" alt="{{ bios.name }}">
             </div>
         </div>
     {% endfor %}

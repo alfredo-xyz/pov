@@ -1,10 +1,10 @@
----
-layout: home
+--- 
+layout: home 
 ---
 <div id="pov-loading-container">
-    <svg version="1.1" id="pov-loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 25 100 50" style="enable-background:new 0 0 100 100;" xml:space="preserve">
-        <path id="pov-loader-circle" transform="translate(50, 50.5) scale(0.35)"/>
+    <svg version="1.1" id="pov-loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 25 100 50" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+        <path id="pov-loader-circle" transform="translate(50, 50.5) scale(0.35)" />
         <path id="pov-loader-logo" d="M92.2,37.7v-0.2h3V37H61.5c-3-2.5-6.9-4.1-11.2-4.1v-2.2h-0.6V33c-4.1,0.1-7.9,1.6-10.9,4.1H8v0.2H7.8
             v1l0,0v0.8c0.3,0,0.7,0,1,0.1c0.3,0,0.6,0.1,1,0.2c0.3,0.1,0.6,0.3,0.8,0.5s0.4,0.5,0.6,0.8l0,0c-0.1,0-0.2,0-0.3,0
             c-0.1,0.3-0.3,0.6-0.4,0.8c-0.2,0.2-0.2,0.4-0.2,0.8c0,0.6,0.1,1,0.4,1.3c0.2,0.2,0.5,0.4,0.8,0.5v0.1v3.2h0.1v-3.1l0,0
@@ -107,7 +107,7 @@ layout: home
             s0.3-0.6,0.5-0.8s0.4-0.4,0.4-0.5c0.2-0.6,0.3-1.3,0.4-2c0-0.5,0-1,0.1-1.6l0.4-0.9c0.3-0.3,0.5-0.5,0.6-0.8
             c0.2-0.4,0.2-0.7,0.3-1.1c0-0.2,0-0.4,0.1-0.6l2.9-7.2c0-0.1,0-0.1,0.1-0.2c0-0.1,0.1-0.1,0.1-0.2c0.2-0.3,0.4-0.5,0.6-0.7
             s0.3-0.4,0.3-0.6c-0.1-0.1-0.2-0.2-0.3-0.3c0.6-1.4,1.1-2.3,1.7-2.8c0.3-0.3,0.6-0.4,1-0.5c0.4-0.1,0.7-0.2,1.1-0.2v-0.5h3
-            C95.3,37.8,95.3,38.9,95.3,38.9z"/>
+            C95.3,37.8,95.3,38.9,95.3,38.9z" />
     </svg>
 </div>
 <script>
@@ -117,16 +117,13 @@ layout: home
     }
 </script>
 <div id="ss-container">
-    <!----------------------------------- Categories Navegation --------------------------------------->
-    {% assign l = 1 %}
-	{{ site.collections | sort: 'id', 'last' }}
-	{% for categories in site.collections %}
-		<div>{{ categories.id }}</div>
-	{% endfor %}
+    {% comment %} Categories Navegation {% endcomment %} {% assign l = 1 %} {{ site.collections | sort: 'id', 'last' }} 
     {% for categories in site.collections %}
+        <div>{{ categories.id }}</div>
+    {% endfor %} 
+    {% for categories in site.collections %} 
     {% if categories.label != "posts" and categories.label != "bios" %}
-    <!----------------------------------- Categories Section --------------------------------------->
-    
+    {% comment %} Categories Section {% endcomment %}
     <section id="panel-{{ l }}" class="work-list">
         <div class="wrapper">
             <h2>
@@ -134,35 +131,28 @@ layout: home
             </h2>
         </div>
         <div class="wrapper">
-			
-            {% for works in categories.docs %}
-                <!----------------------------------- Tile --------------------------------------->
-                <div class="tile shadowed">
-                    <!--        <span class="post-meta">{{ work.date | date: "%b %-d, %Y" }}</span>-->
-                    <a href="#vid-{{ works.title | slugify }}" data-rel="popup" {% if works.thumbVid %}data-has-vid="true"{% endif %}>
-                        <h3>{{ works.title }}</h3>
-                        {% if works.client != "" %}
-                        <span class="client">
-                            {{ works.client }}
-                        </span>
-                        {% endif %}
-                    </a>
-                    <div class="image-bg" 
-                        {% if works.thumbVid %}
-                         data-vid="{{ works.thumbVid }}"
-                         data-poster="../images/{{ works.image }}"
-                        {% endif %}
-                        {% if works.image != "" %}
-                         style="background-image: url(../images/{{ works.image }})"
-                        {% endif %}
-                         >
-                    </div>
+
+            {% for works in categories.docs %} {% comment %} Tile {% endcomment %}
+            <div class="tile shadowed">
+                {% comment %} <span class="post-meta">{{ work.date | date: "%b %-d, %Y" }}</span> {% endcomment %}
+                <a href="#vid-{{ works.title | slugify }}" data-rel="popup" {% if works.thumbVid %}data-has-vid="true" {% endif %}>
+                    <h3>{{ works.title }}</h3>
+                    {% if works.client != "" %}
+                    <span class="client">
+                        {{ works.client }}
+                    </span> 
+                    {% endif %}
+                </a>
+                <div class="image-bg" {% if works.thumbVid %} data-vid="{{ works.thumbVid }}" data-poster="../images/{{ works.image }}" {%
+                    endif %} {% if works.image !="" %} style="background-image: url(../images/{{ works.image }})" {% endif %}>
                 </div>
-            <!----------------------------------- Popup --------------------------------------->
+            </div>
+            {% comment %} Popup {% endcomment %}
             <div id="vid-{{ works.title | slugify }}-screen" class="ui-popup-screen ui-overlay-b ui-screen-hidden"></div>
             <div id="vid-{{ works.title | slugify }}-popup" class="ui-popup-container pop ui-popup-hidden">
                 <div id="vid-{{ works.title | slugify }}" class="pop-up" data-role="popup" data-theme="b" data-overlay-theme="b">
-                    <iframe src="https://player.vimeo.com/video/{{works.link}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <iframe src="https://player.vimeo.com/video/{{works.link}}" width="640" height="360" frameborder="0" webkitallowfullscreen
+                        mozallowfullscreen allowfullscreen></iframe>
                     <div class="flex-wrapper">
                         <h2>{{ works.title }}</h2>
                         {% if works.year != "" %}
@@ -176,7 +166,7 @@ layout: home
                         {{ works.client }}
                     </div>
                     {% endif %}
-                    {% assign content = works.content | strip_newlines %}
+                    {% assign content = works.content | strip_newlines %} 
                     {% if content != "" %}
                     <div data-role="collapsible" class="wrapper">
                         <h3>More Info</h3>
@@ -187,18 +177,13 @@ layout: home
                 </div>
             </div>
             {% endfor %}
-            </div>
+        </div>
         <a class="next-section" href="#panel-{{ l | plus: 1 }}" data-rel="inner">
             <div class="arrow-container">
                 {% include arrow_down.html %}
             </div>
         </a>
     </section>
-    {% assign l = l | plus: 1 %}
-    {% endif %}
-    {% endfor %}
+    {% assign l = l | plus: 1 %} {% endif %} {% endfor %}
     <div id="pictureBG"></div>
 </div>
-<!--  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>-->
-
-

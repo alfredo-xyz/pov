@@ -260,8 +260,7 @@ ul.services {
   margin: 0;
 
   & > li {
-    width: 20%;
-    min-width: ($spacing-unit * 5);
+    width: 14.28%;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -269,8 +268,6 @@ ul.services {
     flex-direction: column;
     border: 0;
     padding: ($spacing-unit / 2);
-
-    //@include color-mix($red, $blue-light, 5);
     
     h3 {
       transition: color .2s ease-in;
@@ -292,7 +289,7 @@ ul.services {
       transition: transform .2s ease-in;
     }
     &:hover {
-      @include color-mix($blue, $red, 5);
+      @include color-mix($blue, $red, 7);
       > div {
         transform: scale(1.2);
       }

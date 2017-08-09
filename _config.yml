@@ -12,7 +12,13 @@ facebook_username: POVCreativeMedia
 
 # Build settings
 markdown: kramdown
-exclude: [/node_modules/, /src/, /*.json, /*.md, /LICENSE]
+exclude: 
+  - /node_modules/
+  - /src/
+  - /*.json
+  - /*.md
+  - /LICENSE
+  - /webpack.config.js
 
 sass:
   sourcemap: true
